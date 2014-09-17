@@ -32,7 +32,7 @@ app.use('/users', users);
 
 /// catch 404 and forward to error handler
 //捕获404错误转发给错误处理
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
     var err = new Error('Not Found');
     err.status = 404;
     next(err);
@@ -44,7 +44,7 @@ app.use(function(req, res, next) {
 // will print stacktrace
 //捕获开发环境下的错误处理
 if (app.get('env') === 'development') {
-    app.use(function(err, req, res, next) {
+    app.use(function (err, req, res, next) {
         res.status(err.status || 500);
         res.render('error', {
             message: err.message,
@@ -56,7 +56,7 @@ if (app.get('env') === 'development') {
 // production error handler
 // no stacktraces leaked to user
 //捕获生产环境下的错误处理，没有泄露堆栈路径（痕迹）给用户
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
     res.status(err.status || 500);
     res.render('error', {
         message: err.message,
